@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #ffb6c1, #ffe4e1);
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+  color: #333;
+}
+
+.container {
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+.title {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  background-color: #ff69b4;
+  color: white;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #ff1493;
+}
+
+/* Popup Styles */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 182, 193, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.popup-content {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  width: 600px;           /* wider for better reading */
+  max-width: 90%;
+  max-height: 80vh;       /* limits height */
+  overflow-y: auto;       /* scroll if content is too long */
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  animation: fadeIn 0.8s ease;
+}
+
+.popup-content p {
+  font-size: 1.2em;
+  line-height: 1.8;
+}
+
+/* Slideshow Styles */
+#slideshowImage {
+  max-width: 100%;        /* fit within popup */
+  max-height: 60vh;       /* limit vertical size */
+  object-fit: contain;    /* maintain aspect ratio */
+  border-radius: 15px;
+  display: block;
+  margin: 0 auto;
+}
+
+.slideshow-controls {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Video Styling */
+video {
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* Floating Hearts Animation */
+.hearts::before,
+.hearts::after {
+  content: '💖 💕 💓 💞 💗 💘 💝';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: float 8s linear infinite;
+  font-size: 24px;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-100%); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .popup-content {
+    width: 90%;
+    max-height: 75vh;
+  }
+
+  #slideshowImage {
+    max-height: 50vh;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+}
